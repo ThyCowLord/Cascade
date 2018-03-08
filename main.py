@@ -1,7 +1,7 @@
-import config
 import picamera
-import subprocess
+import subprocess as x
 import os.path
+
 
 cam = picamera.PiCamera()
 try:
@@ -10,13 +10,24 @@ try:
 except Exception as e:
   exit("Something went wrong... The error was: "+e)
 
-subprocess.run("rm testimageverylongfilenamepleasedeleteafterphotohasbeentaken.jpg")
-subprocess.run("rm testimageverylongfilenamepleasedeleteafterphotohasbeentaken.h264")
+x.run("rm testimageverylongfilenamepleasedeleteafterphotohasbeentaken.jpg")
+x.run("rm testimageverylongfilenamepleasedeleteafterphotohasbeentaken.mp4")
 
 
 def picture():
   try:
-    cam.capture(config.path)
-    
+    cam.start_recording("~/livid.mp4")
+    time.sleep(15)
+    cam.stop_recording()
+    send()
+  except Exception as e:
+    print("Something went wrong.... "+e)
+def send():
+  x.run("cp ~/livid.mp4 /var/www/html/livid.mp4")
+  x.run("rm ~/livid.mp4")
+try:
+  picture()
+except Exception as e:
+  print("Something went wrong... "+e)
   
   
