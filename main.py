@@ -17,7 +17,7 @@ x.run("rm testimageverylongfilenamepleasedeleteafterphotohasbeentaken.mp4")
 def picture():
   try:
     cam.start_recording("~/livid.mp4")
-    time.sleep(15)
+    time.sleep(30)
     cam.stop_recording()
     send()
   except Exception as e:
