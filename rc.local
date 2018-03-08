@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+echo 'Server starting...'
+sudo python3 /home/pi/Cascade/main.py
+
+
+exit 0
