@@ -16,4 +16,5 @@ sudo chmod a+x /etc/rc.local
 sudo update-rc.d apache2 defaults
 
 
-echo 'Setup complete! Do not delete these files!'
+echo 'Setup complete! Now rebooting....'
+sudo reboot now
